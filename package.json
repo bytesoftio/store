@@ -1,6 +1,6 @@
 {
   "name": "@bytesoftio/store",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "author": "Maxim Kott",
   "license": "MIT",
   "main": "dist/index.js",
@@ -21,8 +21,8 @@
     "release": "yarn run build && np"
   },
   "dependencies": {
-    "@bytesoftio/value": "^2.0.0",
     "@bytesoftio/use-value": "^2.0.0",
+    "@bytesoftio/value": "^2.0.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
