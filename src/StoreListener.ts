@@ -1,15 +1,15 @@
-import { HookStore, StoreCallback, StoreDiffer, StoreMapper } from "./types"
+import { ObservableStore, StoreCallback, StoreDiffer, StoreMapper } from "./types"
 
 export class StoreListener<S extends object, SM extends object> {
   callback: StoreCallback<SM>
-  store: HookStore<S>
+  store: ObservableStore<S>
   mapper: StoreMapper<S, SM>
   differ: StoreDiffer<SM>
   oldState: SM
 
   constructor(
     callback: StoreCallback<SM>,
-    store: HookStore<S>,
+    store: ObservableStore<S>,
     mapper: StoreMapper<S, SM>,
     differ: StoreDiffer<SM>,
   ) {

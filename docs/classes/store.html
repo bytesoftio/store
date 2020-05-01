@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Store | @bytesoftio/use-store</title>
+	<title>Store | @bytesoftio/store</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -2335,7 +2335,7 @@ img {
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="../index.html">@bytesoftio/use-store</a></strong>
+					<strong><a href="../index.html">@bytesoftio/store</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -2389,13 +2389,10 @@ img {
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="store.html#add" class="tsd-kind-icon">add</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
-					<a href="store.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a>
-				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="store.html#get" class="tsd-kind-icon">get</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class">
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a href="store.html#listen" class="tsd-kind-icon">listen</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
@@ -2407,28 +2404,19 @@ img {
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="store.html#set" class="tsd-kind-icon">set</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
-					<a href="store.html#unpack" class="tsd-kind-icon">unpack</a>
-				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class">
-					<a href="store.html#use" class="tsd-kind-icon">use</a>
-				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-					<a href="store.html#usemapped" class="tsd-kind-icon">use<wbr>Mapped</a>
-				</li>
 			</ul>
 		</li>
 		<li class=" tsd-kind-interface tsd-has-type-parameter">
-			<a href="../interfaces/hookstore.html" class="tsd-kind-icon">Hook<wbr>Store</a>
+			<a href="../interfaces/observablestore.html" class="tsd-kind-icon">Observable<wbr>Store</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="../globals.html#createstore" class="tsd-kind-icon">Create<wbr>Store</a>
 		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="../globals.html#hookkind" class="tsd-kind-icon">Hook<wbr>Kind</a>
-		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 			<a href="../globals.html#storecallback" class="tsd-kind-icon">Store<wbr>Callback</a>
+		</li>
+		<li class=" tsd-kind-type-alias">
+			<a href="../globals.html#storecallbackunsubscribe" class="tsd-kind-icon">Store<wbr>Callback<wbr>Unsubscribe</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 			<a href="../globals.html#storediffer" class="tsd-kind-icon">Store<wbr>Differ</a>
@@ -2439,29 +2427,8 @@ img {
 		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 			<a href="../globals.html#storemerger" class="tsd-kind-icon">Store<wbr>Merger</a>
 		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="../globals.html#storereseter" class="tsd-kind-icon">Store<wbr>Reseter</a>
-		</li>
-		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-			<a href="../globals.html#storespread" class="tsd-kind-icon">Store<wbr>Spread</a>
-		</li>
-		<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-			<a href="../globals.html#storeupdater" class="tsd-kind-icon">Store<wbr>Updater</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="../globals.html#usestore" class="tsd-kind-icon">Use<wbr>Store</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="../globals.html#usestoremapped" class="tsd-kind-icon">Use<wbr>Store<wbr>Mapped</a>
-		</li>
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#createstore" class="tsd-kind-icon">create<wbr>Store</a>
-		</li>
-		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="../globals.html#usestore" class="tsd-kind-icon">use<wbr>Store</a>
-		</li>
-		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="../globals.html#usestoremapped" class="tsd-kind-icon">use<wbr>Store<wbr>Mapped</a>
 		</li>
 	</ul>
 </nav>
@@ -2486,7 +2453,7 @@ img {
 		<section class="tsd-panel">
 			<h3>Implements</h3>
 			<ul class="tsd-hierarchy">
-				<li><a href="../interfaces/hookstore.html" class="tsd-signature-type">HookStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<li><a href="../interfaces/observablestore.html" class="tsd-signature-type">ObservableStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
 			</ul>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
@@ -2513,15 +2480,11 @@ img {
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="store.html#add" class="tsd-kind-icon">add</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected"><a href="store.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="store.html#get" class="tsd-kind-icon">get</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="store.html#listen" class="tsd-kind-icon">listen</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="store.html#listen" class="tsd-kind-icon">listen</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="store.html#notify" class="tsd-kind-icon">notify</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="store.html#reset" class="tsd-kind-icon">reset</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="store.html#set" class="tsd-kind-icon">set</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected"><a href="store.html#unpack" class="tsd-kind-icon">unpack</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="store.html#use" class="tsd-kind-icon">use</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="store.html#usemapped" class="tsd-kind-icon">use<wbr>Mapped</a></li>
 						</ul>
 					</section>
 				</div>
@@ -2539,7 +2502,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in Store.ts:15</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L20">Store.ts:20</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2567,7 +2530,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">differ<span class="tsd-signature-symbol">:</span> <a href="../globals.html#storediffer" class="tsd-signature-type">StoreDiffer</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in Store.ts:14</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L19">Store.ts:19</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2576,9 +2539,9 @@ img {
 				<h3>initial<wbr>State</h3>
 				<div class="tsd-signature tsd-kind-icon">initial<wbr>State<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">S</span></div>
 				<aside class="tsd-sources">
-					<p>Implementation of <a href="../interfaces/hookstore.html">HookStore</a>.<a href="../interfaces/hookstore.html#initialstate">initialState</a></p>
+					<p>Implementation of <a href="../interfaces/observablestore.html">ObservableStore</a>.<a href="../interfaces/observablestore.html#initialstate">initialState</a></p>
 					<ul>
-						<li>Defined in Store.ts:11</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L16">Store.ts:16</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2588,7 +2551,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">StoreListener</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in Store.ts:15</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L20">Store.ts:20</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2598,7 +2561,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">merger<span class="tsd-signature-symbol">:</span> <a href="../globals.html#storemerger" class="tsd-signature-type">StoreMerger</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in Store.ts:13</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L18">Store.ts:18</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2607,9 +2570,9 @@ img {
 				<h3>state</h3>
 				<div class="tsd-signature tsd-kind-icon">state<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">S</span></div>
 				<aside class="tsd-sources">
-					<p>Implementation of <a href="../interfaces/hookstore.html">HookStore</a>.<a href="../interfaces/hookstore.html#state">state</a></p>
+					<p>Implementation of <a href="../interfaces/observablestore.html">ObservableStore</a>.<a href="../interfaces/observablestore.html#state">state</a></p>
 					<ul>
-						<li>Defined in Store.ts:12</li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L17">Store.ts:17</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2625,9 +2588,9 @@ img {
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Implementation of <a href="../interfaces/hookstore.html">HookStore</a>.<a href="../interfaces/hookstore.html#add">add</a></p>
+							<p>Implementation of <a href="../interfaces/observablestore.html">ObservableStore</a>.<a href="../interfaces/observablestore.html#add">add</a></p>
 							<ul>
-								<li>Defined in Store.ts:42</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L47">Store.ts:47</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2640,17 +2603,35 @@ img {
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
-				<a name="addlistener" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagProtected">Protected</span> add<wbr>Listener</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
-					<li class="tsd-signature tsd-kind-icon">add<wbr>Listener&lt;SM&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><a href="../globals.html#storecallback" class="tsd-signature-type">StoreCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span>, mapper<span class="tsd-signature-symbol">?: </span><a href="../globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span>, hookKind<span class="tsd-signature-symbol">?: </span><a href="../globals.html#hookkind" class="tsd-signature-type">HookKind</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="get" class="tsd-anchor"></a>
+				<h3>get</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Implementation of <a href="../interfaces/observablestore.html">ObservableStore</a>.<a href="../interfaces/observablestore.html#get">get</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L34">Store.ts:34</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">S</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+				<a name="listen" class="tsd-anchor"></a>
+				<h3>listen</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<li class="tsd-signature tsd-kind-icon">listen&lt;SM&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><a href="../globals.html#storecallback" class="tsd-signature-type">StoreCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span>, mapper<span class="tsd-signature-symbol">?: </span><a href="../globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span>, notifyImmediately<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#storecallbackunsubscribe" class="tsd-signature-type">StoreCallbackUnsubscribe</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in Store.ts:91</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L61">Store.ts:61</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -2665,55 +2646,13 @@ img {
 								<h5>callback: <a href="../globals.html#storecallback" class="tsd-signature-type">StoreCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> mapper: <a href="../globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = defaultMapper</span></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> mapper: <a href="../globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> hookKind: <a href="../globals.html#hookkind" class="tsd-signature-type">HookKind</a><span class="tsd-signature-symbol"> = &quot;react&quot;</span></h5>
+								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> notifyImmediately: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="get" class="tsd-anchor"></a>
-				<h3>get</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">S</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<p>Implementation of <a href="../interfaces/hookstore.html">HookStore</a>.<a href="../interfaces/hookstore.html#get">get</a></p>
-							<ul>
-								<li>Defined in Store.ts:29</li>
-							</ul>
-						</aside>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">S</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="listen" class="tsd-anchor"></a>
-				<h3>listen</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">listen<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><a href="../globals.html#storecallback" class="tsd-signature-type">StoreCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<p>Implementation of <a href="../interfaces/hookstore.html">HookStore</a>.<a href="../interfaces/hookstore.html#listen">listen</a></p>
-							<ul>
-								<li>Defined in Store.ts:56</li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>callback: <a href="../globals.html#storecallback" class="tsd-signature-type">StoreCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="../globals.html#storecallbackunsubscribe" class="tsd-signature-type">StoreCallbackUnsubscribe</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -2727,7 +2666,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in Store.ts:106</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L76">Store.ts:76</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2743,9 +2682,9 @@ img {
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Implementation of <a href="../interfaces/hookstore.html">HookStore</a>.<a href="../interfaces/hookstore.html#reset">reset</a></p>
+							<p>Implementation of <a href="../interfaces/observablestore.html">ObservableStore</a>.<a href="../interfaces/observablestore.html#reset">reset</a></p>
 							<ul>
-								<li>Defined in Store.ts:48</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L53">Store.ts:53</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2767,9 +2706,9 @@ img {
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Implementation of <a href="../interfaces/hookstore.html">HookStore</a>.<a href="../interfaces/hookstore.html#set">set</a></p>
+							<p>Implementation of <a href="../interfaces/observablestore.html">ObservableStore</a>.<a href="../interfaces/observablestore.html#set">set</a></p>
 							<ul>
-								<li>Defined in Store.ts:33</li>
+								<li>Defined in <a href="https://github.com/bytesoftio/store/blob/01234c7/src/Store.ts#L38">Store.ts:38</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2779,83 +2718,6 @@ img {
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
-				<a name="unpack" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagProtected">Protected</span> unpack</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
-					<li class="tsd-signature tsd-kind-icon">unpack&lt;SM&gt;<span class="tsd-signature-symbol">(</span>mapper<span class="tsd-signature-symbol">?: </span><a href="../globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in Store.ts:80</li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>SM<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5><span class="tsd-flag ts-flagDefault value">Default value</span> mapper: <a href="../globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = defaultMapper</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="use" class="tsd-anchor"></a>
-				<h3>use</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">use<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<p>Implementation of <a href="../interfaces/hookstore.html">HookStore</a>.<a href="../interfaces/hookstore.html#use">use</a></p>
-							<ul>
-								<li>Defined in Store.ts:60</li>
-							</ul>
-						</aside>
-						<h4 class="tsd-returns-title">Returns <a href="../globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-				<a name="usemapped" class="tsd-anchor"></a>
-				<h3>use<wbr>Mapped</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">use<wbr>Mapped&lt;SM&gt;<span class="tsd-signature-symbol">(</span>mapper<span class="tsd-signature-symbol">: </span><a href="../globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<p>Implementation of <a href="../interfaces/hookstore.html">HookStore</a>.<a href="../interfaces/hookstore.html#usemapped">useMapped</a></p>
-							<ul>
-								<li>Defined in Store.ts:64</li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>SM<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>mapper: <a href="../globals.html#storemapper" class="tsd-signature-type">StoreMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="../globals.html#storespread" class="tsd-signature-type">StoreSpread</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">S</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">SM</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>

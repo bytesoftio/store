@@ -1,8 +1,8 @@
-# @bytesoftio/use-store
+# @bytesoftio/store
 
 ## Installation
 
-`yarn add @bytesoftio/use-store` or `npm install @bytesoftio/use-store`
+`yarn add @bytesoftio/store` or `npm install @bytesoftio/store`
 
 ## Table of contents
 
@@ -11,27 +11,23 @@
 
 
 - [Description](#description)
-- [Usage](#usage)
-  - [createStore](#createstore)
-  - [HookStore](#hookstore)
-  - [useStore](#usestore)
-  - [useStoreMapped](#usestoremapped)
+- [createStore](#createstore)
+- [ObservableStore](#observablestore)
+- [Usage in React](#usage-in-react)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Description
 
-Similar to the `@bytesoftio/use-value` package, this one is optimized for use with objects. It comes with
-differs, mergers and can be used with a custom mapper / connector.
+Similar to the [@bytesoftio/value](https://github.com/bytesoftio/value) package, except this one is optimized for use with objects. It comes with
+differs, mergers and can be used with a custom mapper / connector. Thanks to the [@bytesoftio/use-store](https://github.com/bytesoftio/use-store) package, this library allows you to write stores that can be used in any environment as well as inside React through hooks.
 
-## Usage
+## createStore
 
-### createStore
-
-Creates a new instance of `HookStore` that can be used inside React, with hooks, as well as outside of the React world.
+Creates a new instance of `ObservableStore` .
 
 ```ts
-import { createStore } from "@bytesoftio/use-store"
+import { createStore } from "@bytesoftio/store"
 
 // create a new store from initial state
 const store1 = createStore({some: "data"})
@@ -39,14 +35,12 @@ const store1 = createStore({some: "data"})
 const store2 = createStore(() => ({some: "data"}))
 ```
 
-### HookStore
+## ObservableStore
 
-This object can be used inside React, with the `useStore` hook, as well as outside of React. It is a very simple, 
-observable like object, and comes with many useful methods, necessary to be able to use it outside of React.
+A very simple observable like object.
 
-```tsx
-import React from "react"
-import { createStore } from "@bytesoftio/use-store"
+```ts
+import { createStore } from "@bytesoftio/store"
 
 const store = createStore({firstName: "John", lastName: "Doe"})
 
@@ -65,71 +59,10 @@ store.reset()
 // reset store state and change its initial value
 store.reset({firstName: "James", lastName: "Bond"})
 
-// listen to state changes outside of React
+// listen to state changes outside
 store.listen(state => console.log(state))
-
-// use store similar to how you would use it in React
-const [state, setState, addState, resetState] = store.use()
-
-const Component = () => {
-  const [state, setState, addState, resetState] = store.use()
-  const changeName = () => setState({firstName: "Nikola", lastName: "Tesla"})
-
-  return (
-    <button onClick={changeName}>{state.firstName}</button>
-  )
-}
 ```
 
-### useStore
+## Usage in React
 
-For convenience, this helper can be used to hook up a store inside a
-component, similar to `HookStore.use()`.
-
-```tsx
-import React from "react"
-import { createStore, useStore } from "@bytesoftio/use-store"
-
-const globalStore = createStore({count: 0})
-
-const Component = () => {
-  // create a new store from initial state
-  const [state, setState, addState, resetState] = useStore(() => {count: 0})
-  // create a new store through an initializer / factory function
-  const [globalState, setGlobalState, addGlobalState, resetGlobalState] = useStore(globalStore) 
-  
-  const increment = () => addState({ count: state.count + 1 })
-  const incrementGlobal = () => addGlobalState({ count: globalState.count + 1 })
- 
-  return (
-    <div>
-      <button onClick={increment}>local count: {state.count}</button>    
-      <button onClick={incrementGlobal}>global count: {globalState.count}</button>    
-    </div>
-  )
-} 
-```
-
-### useStoreMapped
-
-When using big stores, you might want to only use a subset of its data, to improve performance, or change the
-structure to your likings. You can do this with a mapper.
-
- ```tsx
-import React from "react"
-import { createStore, useStoreMapped } from "@bytesoftio/use-store"
-
-const globalStore = createStore({firstName: "John", lastName: "Doe", otherData: "irrelevant"})
-
-const Component = () => {
-  const [state, setState, addState, resetState] = useStoreMapped(globalStore, (state) => {
-    return {fullName: `${state.firstName} ${state.lastName}`}
-  })
-
-  return (
-    <div>
-      I will only rerender when <b>firstName</b> or <b>lastName</b> have changed. The name is: {state.fullName}
-    </div>
-  )
-}
-``` 
+To learn how to use this package inside React, please refer to the [@bytesoftio/use-store](https://github.com/bytesoftio/use-store) package.

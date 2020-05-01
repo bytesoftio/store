@@ -1,7 +1,4 @@
-import React from "react"
-import { mount } from "enzyme"
-import { Store, useStore, useStoreMapped } from "./index"
-import { act } from "react-dom/test-utils"
+import { Store } from "./index"
 
 describe("Store", () => {
   it("creates store with initial state", () => {
@@ -91,59 +88,5 @@ describe("Store", () => {
 
     expect(callback).toHaveBeenCalledTimes(2)
     expect(callback).toHaveBeenCalledWith({ foo: "baz" })
-  })
-
-  it("uses state in react", async () => {
-    const store = new Store({ count: 0 })
-
-    let renders = 0
-    const Test = () => {
-      renders++
-      const [state] = useStore(store)
-
-      return (
-        <h1>{state.count}</h1>
-      )
-    }
-
-    const wrapper = mount(<Test/>)
-    const target = () => wrapper.find("h1")
-
-    expect(renders).toBe(1)
-    expect(target().text()).toBe("0")
-
-    act(() => store.set({ count: 1 }))
-
-    expect(renders).toBe(2)
-    expect(target().text()).toBe("1")
-  })
-
-  it("uses mapped state in react", async () => {
-    const store = new Store({ count1: 0, count2: 2 })
-
-    let renders = 0
-    const Test = () => {
-      renders++
-      const [state] = useStoreMapped(store, (state) => ({ count: state.count1 }))
-
-      return (
-        <h1>{state.count}</h1>
-      )
-    }
-
-    const wrapper = mount(<Test/>)
-    const target = () => wrapper.find("h1")
-
-    expect(renders).toBe(1)
-    expect(target().text()).toBe("0")
-
-    act(() => store.add({ count1: 1 }))
-
-    expect(renders).toBe(2)
-    expect(target().text()).toBe("1")
-
-    act(() => store.add({ count2: 1 }))
-
-    expect(renders).toBe(2)
   })
 })

@@ -1,5 +1,3 @@
 export * from "./types"
 export * from "./Store"
 export * from "./createStore"
-export * from "./useStore"
-export * from "./useStoreMapped"

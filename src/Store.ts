@@ -1,13 +1,18 @@
-import { useEffect } from "react"
-import { HookKind, HookStore, StoreCallback, StoreDiffer, StoreMapper, StoreMerger, StoreSpread } from "./types"
+import {
+  ObservableStore,
+  StoreCallback,
+  StoreCallbackUnsubscribe,
+  StoreDiffer,
+  StoreMapper,
+  StoreMerger,
+} from "./types"
 import { defaultMerger } from "./defaultMerger"
 import { defaultDiffer } from "./defaultDiffer"
 import { defaultMapper } from "./defaultMapper"
 import { StoreListener } from "./StoreListener"
 import { cloneDeep } from "lodash"
-import { useValue } from "@bytesoftio/use-value"
 
-export class Store<S extends object> implements HookStore<S> {
+export class Store<S extends object> implements ObservableStore<S> {
   initialState: S
   state: S
   merger: StoreMerger<S>
@@ -53,48 +58,13 @@ export class Store<S extends object> implements HookStore<S> {
     this.set(this.initialState)
   }
 
-  listen(callback: StoreCallback<S>): void {
-    this.addListener(callback, defaultMapper, "plain")
-  }
+  listen<SM extends object = S>(callback: StoreCallback<SM>, mapper?: StoreMapper<S, SM>, notifyImmediately: boolean = true): StoreCallbackUnsubscribe {
+    mapper = mapper ? mapper : defaultMapper as StoreMapper<S, SM>
 
-  use(): StoreSpread<S, S> {
-    return this.useMapped(defaultMapper)
-  }
-
-  useMapped<SM extends object>(mapper: StoreMapper<S, SM>): StoreSpread<S, SM> {
-    try {
-      const [state, setState] = useValue(this.state)
-
-      useEffect(() => {
-        // try to hook into a component, whenever the state changes outside of react, it needs to be updated inside
-        // react too, this is basically what happens here, returns a clean up function to unsubscribe from the store
-        // whenever the component un-mounts
-        return this.addListener((newState) => setState(newState as any), mapper, "react")
-      }, [])
-    } catch (err) {
-    }
-
-    return this.unpack(mapper)
-  }
-
-  protected unpack<SM extends object>(mapper: StoreMapper<S, SM> = defaultMapper): StoreSpread<S, SM> {
-    const mappedState = mapper(this.state as any)
-
-    return [
-      mappedState,
-      (newState) => this.set(newState),
-      (newState) => this.add(newState),
-      () => this.reset(),
-    ]
-  }
-
-  protected addListener<SM extends object>(callback: StoreCallback<SM>, mapper: StoreMapper<S, SM> = defaultMapper, hookKind: HookKind = "react") {
-    mapper = mapper ? mapper : defaultMapper
-
-    const listener = new StoreListener<S, SM>(callback, this as any, mapper, this.differ)
+    const listener = new StoreListener<S, SM>(callback, this, mapper, this.differ)
     this.listeners.push(listener)
 
-    if (hookKind === "plain") {
+    if (notifyImmediately) {
       listener.notify(this.state)
     }
 
