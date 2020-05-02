@@ -17,19 +17,23 @@ describe("Store", () => {
   })
 
   it("sets state", () => {
-    const store = new Store({ foo: "bar" })
+    const state = { foo: "bar" }
+    const store = new Store(state)
 
     store.set({ foo: "baz" })
 
     expect(store.get()).toEqual({ foo: "baz" })
+    expect(state).toEqual({ foo: "bar" })
   })
 
   it("adds state", () => {
-    const store = new Store({ foo: "bar", yolo: "swag" })
+    const state = { foo: "bar", yolo: "swag" }
+    const store = new Store(state)
 
     store.add({ yolo: "bar" })
 
     expect(store.get()).toEqual({ foo: "bar", yolo: "bar" })
+    expect(state).toEqual({ foo: "bar", yolo: "swag" })
   })
 
   it("resets state to initial state", () => {

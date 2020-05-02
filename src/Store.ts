@@ -39,20 +39,20 @@ export class Store<S extends object> implements ObservableStore<S> {
     const isDifferent = this.differ(this.state, newState)
 
     if (isDifferent) {
-      this.state = newState
+      this.state = cloneDeep({ ...newState })
       this.notify()
     }
   }
 
   add(newState: Partial<S>) {
-    const mergedNewState = this.merger(this.state, newState)
+    const mergedNewState = this.merger(this.state, cloneDeep(newState))
 
     this.set(mergedNewState)
   }
 
   reset(initialState?: S) {
     if (initialState) {
-      this.initialState = { ...initialState }
+      this.initialState = cloneDeep(initialState)
     }
 
     this.set(this.initialState)
