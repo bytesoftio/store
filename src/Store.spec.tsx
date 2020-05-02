@@ -80,17 +80,22 @@ describe("Store", () => {
   })
 
   it("listens", () => {
-    const store = new Store({ foo: "bar" })
+    const store1 = new Store({ foo: "bar" })
     const callback = jest.fn()
 
-    store.listen(callback)
+    store1.listen(callback)
 
     expect(callback).toHaveBeenCalledTimes(1)
     expect(callback).toHaveBeenCalledWith({ foo: "bar" })
 
-    store.set({ foo: "baz" })
+    store1.set({ foo: "baz" })
 
     expect(callback).toHaveBeenCalledTimes(2)
     expect(callback).toHaveBeenCalledWith({ foo: "baz" })
+
+    store1.reset()
+
+    expect(callback).toHaveBeenCalledTimes(3)
+    expect(callback).toHaveBeenCalledWith({ foo: "bar" })
   })
 })

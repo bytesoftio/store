@@ -24,8 +24,8 @@ export class Store<S extends object> implements ObservableStore<S> {
     merger: StoreMerger<S> = defaultMerger,
     differ: StoreDiffer<S> = defaultDiffer,
   ) {
-    this.initialState = { ...initialState }
-    this.state = { ...this.initialState }
+    this.initialState = cloneDeep(initialState)
+    this.state = cloneDeep(initialState)
     this.differ = differ
     this.merger = merger
     this.listeners = []
@@ -39,7 +39,7 @@ export class Store<S extends object> implements ObservableStore<S> {
     const isDifferent = this.differ(this.state, newState)
 
     if (isDifferent) {
-      this.state = cloneDeep({ ...newState })
+      this.state = cloneDeep(newState)
       this.notify()
     }
   }
