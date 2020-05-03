@@ -7,7 +7,7 @@ export interface ObservableStore<S extends object> {
   add(newState: Partial<S>): void
   reset(initialState?: S): void
 
-  listen<SM extends object = S>(callback: StoreCallback<SM>, mapper?: StoreMapper<S, SM>, notifyImmediately?: boolean): StoreCallbackUnsubscribe
+  listen<SM extends object = S>(callback: StoreCallback<SM>, notifyImmediately?: boolean, mapper?: StoreMapper<S, SM>): StoreCallbackUnsubscribe
 }
 
 export type StoreCallback<S extends object> = (newState: S) => void

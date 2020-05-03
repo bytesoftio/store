@@ -58,10 +58,10 @@ export class Store<S extends object> implements ObservableStore<S> {
     this.set(this.initialState)
   }
 
-  listen<SM extends object = S>(callback: StoreCallback<SM>, mapper?: StoreMapper<S, SM>, notifyImmediately: boolean = true): StoreCallbackUnsubscribe {
+  listen<SM extends object = S>(callback: StoreCallback<SM>, notifyImmediately: boolean = true, mapper?: StoreMapper<S, SM>): StoreCallbackUnsubscribe {
     mapper = mapper ? mapper : defaultMapper as StoreMapper<S, SM>
 
-    const listener = new StoreListener<S, SM>(callback, this, mapper, this.differ)
+    const listener = new StoreListener<S, SM>(callback, mapper, this.differ)
     this.listeners.push(listener)
 
     if (notifyImmediately) {
