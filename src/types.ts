@@ -1,18 +1,18 @@
-export interface ObservableStore<S extends object> {
-  state: S
-  initialState: S
+export interface ObservableStore<TState extends object> {
+  state: TState
+  initialState: TState
 
-  get(): S
-  set(newState: S): void
-  add(newState: Partial<S>): void
-  reset(initialState?: S): void
+  get(): TState
+  set(newState: TState): void
+  add(newState: Partial<TState>): void
+  reset(initialState?: TState): void
 
-  listen<SM extends object = S>(callback: StoreCallback<SM>, notifyImmediately?: boolean, mapper?: StoreMapper<S, SM>): StoreCallbackUnsubscribe
+  listen<TStateMapped extends object = TState>(callback: StoreCallback<TStateMapped>, notifyImmediately?: boolean, mapper?: StoreMapper<TState, TStateMapped>): StoreCallbackUnsubscribe
 }
 
-export type StoreCallback<S extends object> = (newState: S) => void
+export type StoreCallback<TState extends object> = (newState: TState) => void
 export type StoreCallbackUnsubscribe = () => void
-export type StoreMerger<S extends object> = (oldState: S, newState: Partial<S>) => S
-export type StoreMapper<S extends object, SM extends object> = (state: S) => SM
-export type StoreDiffer<S extends object> = (oldState: S, newState: S) => boolean
-export type CreateStore = <S extends object>(initialState: S) => ObservableStore<S>
+export type StoreMerger<TState extends object> = (oldState: TState, newState: Partial<TState>) => TState
+export type StoreMapper<TState extends object, TStateMapped extends object> = (state: TState) => TStateMapped
+export type StoreDiffer<TState extends object> = (oldState: TState, newState: TState) => boolean
+export type CreateStore = <TState extends object>(initialState: TState) => ObservableStore<TState>

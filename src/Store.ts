@@ -12,17 +12,17 @@ import { defaultMapper } from "./defaultMapper"
 import { StoreListener } from "./StoreListener"
 import { cloneDeep } from "lodash"
 
-export class Store<S extends object> implements ObservableStore<S> {
-  initialState: S
-  state: S
-  merger: StoreMerger<S>
+export class Store<TState extends object> implements ObservableStore<TState> {
+  initialState: TState
+  state: TState
+  merger: StoreMerger<TState>
   differ: StoreDiffer<any>
-  listeners: StoreListener<S, any>[]
+  listeners: StoreListener<TState, any>[]
 
   constructor(
-    initialState: S,
-    merger: StoreMerger<S> = defaultMerger,
-    differ: StoreDiffer<S> = defaultDiffer,
+    initialState: TState,
+    merger: StoreMerger<TState> = defaultMerger,
+    differ: StoreDiffer<TState> = defaultDiffer,
   ) {
     this.initialState = cloneDeep(initialState)
     this.state = cloneDeep(initialState)
@@ -31,11 +31,11 @@ export class Store<S extends object> implements ObservableStore<S> {
     this.listeners = []
   }
 
-  get(): S {
+  get(): TState {
     return cloneDeep(this.state)
   }
 
-  set(newState: S) {
+  set(newState: TState) {
     const isDifferent = this.differ(this.state, newState)
 
     if (isDifferent) {
@@ -44,13 +44,13 @@ export class Store<S extends object> implements ObservableStore<S> {
     }
   }
 
-  add(newState: Partial<S>) {
+  add(newState: Partial<TState>) {
     const mergedNewState = this.merger(this.state, cloneDeep(newState))
 
     this.set(mergedNewState)
   }
 
-  reset(initialState?: S) {
+  reset(initialState?: TState) {
     if (initialState) {
       this.initialState = cloneDeep(initialState)
     }
@@ -58,10 +58,10 @@ export class Store<S extends object> implements ObservableStore<S> {
     this.set(this.initialState)
   }
 
-  listen<SM extends object = S>(callback: StoreCallback<SM>, notifyImmediately: boolean = true, mapper?: StoreMapper<S, SM>): StoreCallbackUnsubscribe {
-    mapper = mapper ? mapper : defaultMapper as StoreMapper<S, SM>
+  listen<TStateMapped extends object = TState>(callback: StoreCallback<TStateMapped>, notifyImmediately: boolean = true, mapper?: StoreMapper<TState, TStateMapped>): StoreCallbackUnsubscribe {
+    mapper = mapper ? mapper : defaultMapper as StoreMapper<TState, TStateMapped>
 
-    const listener = new StoreListener<S, SM>(callback, mapper, this.differ)
+    const listener = new StoreListener<TState, TStateMapped>(callback, mapper, this.differ)
     this.listeners.push(listener)
 
     if (notifyImmediately) {

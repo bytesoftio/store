@@ -1,15 +1,15 @@
 import { StoreCallback, StoreDiffer, StoreMapper } from "./types"
 
-export class StoreListener<S extends object, SM extends object> {
-  callback: StoreCallback<SM>
-  mapper: StoreMapper<S, SM>
-  differ: StoreDiffer<SM>
-  oldState: SM
+export class StoreListener<TState extends object, TStateMapped extends object> {
+  callback: StoreCallback<TStateMapped>
+  mapper: StoreMapper<TState, TStateMapped>
+  differ: StoreDiffer<TStateMapped>
+  oldState: TStateMapped
 
   constructor(
-    callback: StoreCallback<SM>,
-    mapper: StoreMapper<S, SM>,
-    differ: StoreDiffer<SM>,
+    callback: StoreCallback<TStateMapped>,
+    mapper: StoreMapper<TState, TStateMapped>,
+    differ: StoreDiffer<TStateMapped>,
   ) {
     this.callback = callback
     this.mapper = mapper
@@ -17,7 +17,7 @@ export class StoreListener<S extends object, SM extends object> {
     this.oldState = undefined as any
   }
 
-  notify(newState: S) {
+  notify(newState: TState) {
     const mappedNewState = this.mapper(newState)
     const isDifferent = this.differ(this.oldState, mappedNewState)
 
