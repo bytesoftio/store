@@ -2733,9 +2733,7 @@ img {
 			<pre><code class="language-ts"><pre class="shiki" style="background-color: #FFFFFF"><code><span style="color: #0000FF">import</span><span style="color: #000000"> { </span><span style="color: #001080">createStore</span><span style="color: #000000"> } </span><span style="color: #0000FF">from</span><span style="color: #000000"> </span><span style="color: #A31515">"@bytesoftio/store"</span>
 
 <span style="color: #008000">// create a new store from initial state</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #001080">store1</span><span style="color: #000000"> = </span><span style="color: #795E26">createStore</span><span style="color: #000000">({</span><span style="color: #001080">some:</span><span style="color: #000000"> </span><span style="color: #A31515">"data"</span><span style="color: #000000">})</span>
-<span style="color: #008000">// create a new store through an initializer / factory</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #001080">store2</span><span style="color: #000000"> = </span><span style="color: #795E26">createStore</span><span style="color: #000000">(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> ({</span><span style="color: #001080">some:</span><span style="color: #000000"> </span><span style="color: #A31515">"data"</span><span style="color: #000000">}))</span></code></pre></code></pre>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #001080">store</span><span style="color: #000000"> = </span><span style="color: #795E26">createStore</span><span style="color: #000000">({</span><span style="color: #001080">some:</span><span style="color: #000000"> </span><span style="color: #A31515">"data"</span><span style="color: #000000">})</span></code></pre></code></pre>
 			<a href="#observablestore" id="observablestore" style="color: inherit; text-decoration: none;">
 				<h2>ObservableStore</h2>
 			</a>
@@ -2807,10 +2805,10 @@ img {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="createstore" class="tsd-anchor"></a>
 				<h3>Create<wbr>Store</h3>
-				<div class="tsd-signature tsd-kind-icon">Create<wbr>Store<span class="tsd-signature-symbol">:</span> &lt;TState&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="interfaces/observablestore.html" class="tsd-signature-type">ObservableStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<div class="tsd-signature tsd-kind-icon">Create<wbr>Store<span class="tsd-signature-symbol">:</span> &lt;TValue&gt;<span class="tsd-signature-symbol">(</span>initialValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="interfaces/observablestore.html" class="tsd-signature-type">ObservableStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/ce74bbd/src/types.ts#L18">types.ts:18</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/8233b89/src/types.ts#L18">types.ts:18</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2818,23 +2816,23 @@ img {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias tsd-has-type-parameter">
-								<li class="tsd-signature tsd-kind-icon">&lt;TState&gt;<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/observablestore.html" class="tsd-signature-type">ObservableStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span></li>
+								<li class="tsd-signature tsd-kind-icon">&lt;TValue&gt;<span class="tsd-signature-symbol">(</span>initialValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="interfaces/observablestore.html" class="tsd-signature-type">ObservableStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-type-parameters-title">Type parameters</h4>
 									<ul class="tsd-type-parameters">
 										<li>
-											<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+											<h4>TValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 										</li>
 									</ul>
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>initialState: <span class="tsd-signature-type">TState</span></h5>
+											<h5>initialValue: <span class="tsd-signature-type">TValue</span></h5>
 										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <a href="interfaces/observablestore.html" class="tsd-signature-type">ObservableStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									<h4 class="tsd-returns-title">Returns <a href="interfaces/observablestore.html" class="tsd-signature-type">ObservableStore</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h4>
 								</li>
 							</ul>
 						</li>
@@ -2844,16 +2842,16 @@ img {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="storecallback" class="tsd-anchor"></a>
 				<h3>Store<wbr>Callback</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Callback&lt;TState&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+				<div class="tsd-signature tsd-kind-icon">Store<wbr>Callback&lt;TValue&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/ce74bbd/src/types.ts#L13">types.ts:13</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/8233b89/src/types.ts#L13">types.ts:13</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>TValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 					</li>
 				</ul>
 				<div class="tsd-type-declaration">
@@ -2861,14 +2859,14 @@ img {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>newState: <span class="tsd-signature-type">TState</span></h5>
+											<h5>newValue: <span class="tsd-signature-type">TValue</span></h5>
 										</li>
 									</ul>
 									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2884,7 +2882,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">Store<wbr>Callback<wbr>Unsubscribe<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/ce74bbd/src/types.ts#L14">types.ts:14</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/8233b89/src/types.ts#L14">types.ts:14</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -2906,16 +2904,16 @@ img {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="storediffer" class="tsd-anchor"></a>
 				<h3>Store<wbr>Differ</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Differ&lt;TState&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>oldState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span>, newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
+				<div class="tsd-signature tsd-kind-icon">Store<wbr>Differ&lt;TValue&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>oldValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/ce74bbd/src/types.ts#L17">types.ts:17</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/8233b89/src/types.ts#L17">types.ts:17</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>TValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 					</li>
 				</ul>
 				<div class="tsd-type-declaration">
@@ -2923,17 +2921,17 @@ img {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>oldState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span>, newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>oldValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>oldState: <span class="tsd-signature-type">TState</span></h5>
+											<h5>oldValue: <span class="tsd-signature-type">TValue</span></h5>
 										</li>
 										<li>
-											<h5>newState: <span class="tsd-signature-type">TState</span></h5>
+											<h5>newValue: <span class="tsd-signature-type">TValue</span></h5>
 										</li>
 									</ul>
 									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -2946,19 +2944,19 @@ img {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="storemapper" class="tsd-anchor"></a>
 				<h3>Store<wbr>Mapper</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Mapper&lt;TState, TStateMapped&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TStateMapped</span></div>
+				<div class="tsd-signature tsd-kind-icon">Store<wbr>Mapper&lt;TValue, TValueMapped&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TValueMapped</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/ce74bbd/src/types.ts#L16">types.ts:16</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/8233b89/src/types.ts#L16">types.ts:16</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>TValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 					</li>
 					<li>
-						<h4>TStateMapped<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>TValueMapped<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 					</li>
 				</ul>
 				<div class="tsd-type-declaration">
@@ -2966,17 +2964,17 @@ img {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TStateMapped</span></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValueMapped</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>state: <span class="tsd-signature-type">TState</span></h5>
+											<h5>value: <span class="tsd-signature-type">TValue</span></h5>
 										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TStateMapped</span></h4>
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TValueMapped</span></h4>
 								</li>
 							</ul>
 						</li>
@@ -2986,16 +2984,16 @@ img {
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 				<a name="storemerger" class="tsd-anchor"></a>
 				<h3>Store<wbr>Merger</h3>
-				<div class="tsd-signature tsd-kind-icon">Store<wbr>Merger&lt;TState&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>oldState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span>, newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TState</span></div>
+				<div class="tsd-signature tsd-kind-icon">Store<wbr>Merger&lt;TValue&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>oldValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">TValue</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/ce74bbd/src/types.ts#L15">types.ts:15</a></li>
+						<li>Defined in <a href="https://github.com/bytesoftio/store/blob/8233b89/src/types.ts#L15">types.ts:15</a></li>
 					</ul>
 				</aside>
 				<h4 class="tsd-type-parameters-title">Type parameters</h4>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>TState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
+						<h4>TValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h4>
 					</li>
 				</ul>
 				<div class="tsd-type-declaration">
@@ -3003,20 +3001,20 @@ img {
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-signature">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>oldState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span>, newState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>oldValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span>, newValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>oldState: <span class="tsd-signature-type">TState</span></h5>
+											<h5>oldValue: <span class="tsd-signature-type">TValue</span></h5>
 										</li>
 										<li>
-											<h5>newState: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											<h5>newValue: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h5>
 										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TState</span></h4>
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TValue</span></h4>
 								</li>
 							</ul>
 						</li>
@@ -3030,22 +3028,22 @@ img {
 				<a name="createstore" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> create<wbr>Store</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">create<wbr>Store<span class="tsd-signature-symbol">(</span>initialState<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/store.html" class="tsd-signature-type">Store</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">create<wbr>Store<span class="tsd-signature-symbol">(</span>initialValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/store.html" class="tsd-signature-type">Store</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/bytesoftio/store/blob/ce74bbd/src/createStore.ts#L4">createStore.ts:4</a></li>
+								<li>Defined in <a href="https://github.com/bytesoftio/store/blob/8233b89/src/createStore.ts#L4">createStore.ts:4</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>initialState: <span class="tsd-signature-type">TState</span></h5>
+								<h5>initialValue: <span class="tsd-signature-type">TValue</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="classes/store.html" class="tsd-signature-type">Store</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TState</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="classes/store.html" class="tsd-signature-type">Store</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TValue</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>

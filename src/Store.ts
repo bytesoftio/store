@@ -12,60 +12,60 @@ import { defaultMapper } from "./defaultMapper"
 import { StoreListener } from "./StoreListener"
 import { cloneDeep } from "lodash"
 
-export class Store<TState extends object> implements ObservableStore<TState> {
-  initialState: TState
-  state: TState
-  merger: StoreMerger<TState>
+export class Store<TValue extends object> implements ObservableStore<TValue> {
+  initialValue: TValue
+  value: TValue
+  merger: StoreMerger<TValue>
   differ: StoreDiffer<any>
-  listeners: StoreListener<TState, any>[]
+  listeners: StoreListener<TValue, any>[]
 
   constructor(
-    initialState: TState,
-    merger: StoreMerger<TState> = defaultMerger,
-    differ: StoreDiffer<TState> = defaultDiffer,
+    initialValue: TValue,
+    merger: StoreMerger<TValue> = defaultMerger,
+    differ: StoreDiffer<TValue> = defaultDiffer,
   ) {
-    this.initialState = cloneDeep(initialState)
-    this.state = cloneDeep(initialState)
+    this.initialValue = cloneDeep(initialValue)
+    this.value = cloneDeep(initialValue)
     this.differ = differ
     this.merger = merger
     this.listeners = []
   }
 
-  get(): TState {
-    return cloneDeep(this.state)
+  get(): TValue {
+    return cloneDeep(this.value)
   }
 
-  set(newState: TState) {
-    const isDifferent = this.differ(this.state, newState)
+  set(newValue: TValue) {
+    const isDifferent = this.differ(this.value, newValue)
 
     if (isDifferent) {
-      this.state = cloneDeep(newState)
+      this.value = cloneDeep(newValue)
       this.notify()
     }
   }
 
-  add(newState: Partial<TState>) {
-    const mergedNewState = this.merger(this.state, cloneDeep(newState))
+  add(newValue: Partial<TValue>) {
+    const mergedNewValue = this.merger(this.value, cloneDeep(newValue))
 
-    this.set(mergedNewState)
+    this.set(mergedNewValue)
   }
 
-  reset(initialState?: TState) {
-    if (initialState) {
-      this.initialState = cloneDeep(initialState)
+  reset(initialValue?: TValue) {
+    if (initialValue) {
+      this.initialValue = cloneDeep(initialValue)
     }
 
-    this.set(this.initialState)
+    this.set(this.initialValue)
   }
 
-  listen<TStateMapped extends object = TState>(callback: StoreCallback<TStateMapped>, notifyImmediately: boolean = true, mapper?: StoreMapper<TState, TStateMapped>): StoreCallbackUnsubscribe {
-    mapper = mapper ? mapper : defaultMapper as StoreMapper<TState, TStateMapped>
+  listen<TValueMapped extends object = TValue>(callback: StoreCallback<TValueMapped>, notifyImmediately: boolean = true, mapper?: StoreMapper<TValue, TValueMapped>): StoreCallbackUnsubscribe {
+    mapper = mapper ? mapper : defaultMapper as StoreMapper<TValue, TValueMapped>
 
-    const listener = new StoreListener<TState, TStateMapped>(callback, mapper, this.differ)
+    const listener = new StoreListener<TValue, TValueMapped>(callback, mapper, this.differ)
     this.listeners.push(listener)
 
     if (notifyImmediately) {
-      listener.notify(this.state)
+      listener.notify(this.value)
     }
 
     return () => {
@@ -74,6 +74,6 @@ export class Store<TState extends object> implements ObservableStore<TState> {
   }
 
   protected notify() {
-    this.listeners.forEach(listener => listener.notify(this.state as any))
+    this.listeners.forEach(listener => listener.notify(this.value as any))
   }
 }

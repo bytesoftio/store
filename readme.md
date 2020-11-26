@@ -30,9 +30,7 @@ Creates a new instance of `ObservableStore` .
 import { createStore } from "@bytesoftio/store"
 
 // create a new store from initial state
-const store1 = createStore({some: "data"})
-// create a new store through an initializer / factory
-const store2 = createStore(() => ({some: "data"}))
+const store = createStore({some: "data"})
 ```
 
 ## ObservableStore

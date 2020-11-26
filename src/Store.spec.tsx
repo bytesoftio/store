@@ -17,23 +17,23 @@ describe("Store", () => {
   })
 
   it("sets state", () => {
-    const state = { foo: "bar" }
-    const store = new Store(state)
+    const value = { foo: "bar" }
+    const store = new Store(value)
 
     store.set({ foo: "baz" })
 
     expect(store.get()).toEqual({ foo: "baz" })
-    expect(state).toEqual({ foo: "bar" })
+    expect(value).toEqual({ foo: "bar" })
   })
 
   it("adds state", () => {
-    const state = { foo: "bar", yolo: "swag" }
-    const store = new Store(state)
+    const value = { foo: "bar", yolo: "swag" }
+    const store = new Store(value)
 
     store.add({ yolo: "bar" })
 
     expect(store.get()).toEqual({ foo: "bar", yolo: "bar" })
-    expect(state).toEqual({ foo: "bar", yolo: "swag" })
+    expect(value).toEqual({ foo: "bar", yolo: "swag" })
   })
 
   it("resets state to initial state", () => {
@@ -66,36 +66,42 @@ describe("Store", () => {
 
   it("does not mutate previous state", () => {
     const store = new Store({ foo: "bar", yolo: "swag" })
-    const state1 = store.get()
-    const state2 = store.get()
+    const value1 = store.get()
+    const value2 = store.get()
 
     store.add({ yolo: "bar" })
-    expect(state1).toEqual({ foo: "bar", yolo: "swag" })
-    expect(state2).toEqual({ foo: "bar", yolo: "swag" })
+    expect(value1).toEqual({ foo: "bar", yolo: "swag" })
+    expect(value2).toEqual({ foo: "bar", yolo: "swag" })
 
     store.set({ foo: "bar", yolo: "baz" })
     expect(store.get()).toEqual({ foo: "bar", yolo: "baz" })
-    expect(state1).toEqual({ foo: "bar", yolo: "swag" })
-    expect(state2).toEqual({ foo: "bar", yolo: "swag" })
+    expect(value1).toEqual({ foo: "bar", yolo: "swag" })
+    expect(value2).toEqual({ foo: "bar", yolo: "swag" })
   })
 
   it("listens", () => {
-    const store1 = new Store({ foo: "bar" })
+    const store = new Store({ foo: "bar" })
     const callback = jest.fn()
 
-    store1.listen(callback)
+    const removeListener = store.listen(callback)
 
     expect(callback).toHaveBeenCalledTimes(1)
     expect(callback).toHaveBeenCalledWith({ foo: "bar" })
 
-    store1.set({ foo: "baz" })
+    store.set({ foo: "baz" })
 
     expect(callback).toHaveBeenCalledTimes(2)
     expect(callback).toHaveBeenCalledWith({ foo: "baz" })
 
-    store1.reset()
+    store.reset()
 
     expect(callback).toHaveBeenCalledTimes(3)
     expect(callback).toHaveBeenCalledWith({ foo: "bar" })
+
+    removeListener()
+
+    store.set({ yolo: "swag" } as any)
+
+    expect(callback).toHaveBeenCalledTimes(3)
   })
 })

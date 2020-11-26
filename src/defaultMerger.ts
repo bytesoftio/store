@@ -1,10 +1,10 @@
 import { isObjectLike } from "lodash"
 import { StoreMerger } from "./types"
 
-export const defaultMerger: StoreMerger<any> = (oldState, newState) => {
-  if (isObjectLike(oldState) && isObjectLike(newState)) {
-    return { ...oldState, ...newState }
+export const defaultMerger: StoreMerger<any> = (oldValue, newValue) => {
+  if (isObjectLike(oldValue) && isObjectLike(newValue)) {
+    return { ...oldValue, ...newValue }
   }
 
-  return newState as any
+  return newValue as any
 }
